@@ -3,22 +3,24 @@ public:
     
     bool check(int n, int row, int col, vector<string> temp) {
         //check row
-        for(int i=0; i<n; i++) {
+        for(int i=0; i<col; i++) {
             if(temp[row][i] == 'Q')
                 return false;
         }
-        //check column
-        for(int i=0; i<n; i++) {
-            if(temp[i][col] == 'Q')
-                return false;
-        }
-        //check south east diagonal
+        // //check column
+        // for(int i=0; i<n; i++) {
+        //     if(temp[i][col] == 'Q')
+        //         return false;
+        // }
+        // //check south east diagonal
+        // int i = row, j = col;
+        // while(i >=0 && i < n && j < n && j >= 0) {
+        //     if(temp[i][j] == 'Q') return false;
+        //     i++;
+        //     j++;
+        // }
+        
         int i = row, j = col;
-        while(i >=0 && i < n && j < n && j >= 0) {
-            if(temp[i][j] == 'Q') return false;
-            i++;
-            j++;
-        }
         //check south west diagonal
         i = row, j = col;
         while(i >=0 && i < n && j < n && j >= 0) {
@@ -26,13 +28,13 @@ public:
             i++;
             j--;
         }
-        //check north east diagonal
-        i = row, j = col;
-        while(i >=0 && i < n && j < n && j >= 0) {
-            if(temp[i][j] == 'Q') return false;
-            i--;
-            j++;
-        }
+        // //check north east diagonal
+        // i = row, j = col;
+        // while(i >=0 && i < n && j < n && j >= 0) {
+        //     if(temp[i][j] == 'Q') return false;
+        //     i--;
+        //     j++;
+        // }
         //check north west diagonal
         i = row, j = col;
         while(i >=0 && i < n && j < n && j >= 0) {
@@ -41,32 +43,7 @@ public:
             j--;
         }
         
-        // //check up
-        // if(row > 0 && temp[row-1][col] == 'Q')
-        //     return false;
-        // //check down
-        // if(row < n-1 && temp[row+1][col] == 'Q')
-        //     return false;
-        // //check left
-        // if(col > 0 && temp[row][col-1] == 'Q')
-        //     return false;
-        // //check right
-        // if(col < n-1 && temp[row][col+1] == 'Q')
-        //     return false;
-        // //check corners 
-        // if(row > 0) {
-        //     if(col > 0 && temp[row-1][col-1] == 'Q')
-        //         return false;
-        //     if(col < n-1 && temp[row-1][col+1] == 'Q')
-        //         return false;
-        // }
-        // if(row < n-1) {
-        //     if(col > 0 && temp[row+1][col-1] == 'Q')
-        //         return false;
-        //     if(col < n-1 && temp[row+1][col+1] == 'Q')
-        //         return false;
-        // }
-        return true;
+      return true;
     }
     
     void fill(int col, int n, vector<string>& temp, vector<vector<string>>& res) {
