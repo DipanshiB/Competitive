@@ -12,7 +12,7 @@
 class Solution {
 public:
     
-    void helper(TreeNode* root, string s, unordered_set<string>& strSet) {
+    void helper(TreeNode* root, string s, vector<string>& result) {
         if(!root) { 
             //strSet.insert(s);
             return; 
@@ -20,11 +20,11 @@ public:
         if(s != "") s.append("->");
         s.append(to_string(root->val));
         if(!root->left && !root->right) {
-            strSet.insert(s);
+            result.push_back(s);
             return;
         }
-        if(root->left) helper(root->left, s, strSet);
-        if(root->right) helper(root->right, s, strSet);
+        if(root->left) helper(root->left, s, result);
+        if(root->right) helper(root->right, s, result);
         //strSet.insert(s);
         return;
     }
@@ -32,16 +32,16 @@ public:
     vector<string> binaryTreePaths(TreeNode* root) {
         TreeNode* head = root;
         vector<string> result;
-        unordered_set<string> strSet;
+        //unordered_set<string> strSet;
         if(!root) return result;
         string s;
-        helper(root, s, strSet);
+        helper(root, s, result);
         // s.append(to_string(root->val));
         // helper(root->left, s, strSet);
         // helper(root->right, s, strSet);
-        for(auto elem : strSet) {
-            result.push_back(elem);
-        }
+        // for(auto elem : strSet) {
+        //     result.push_back(elem);
+        // }
         return result;
     }
 };
