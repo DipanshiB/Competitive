@@ -21,7 +21,8 @@ public:
                 if(s[start+1] == s[end]) {
                     string temp = s;
                     temp.erase(start, 1);
-                    string temp2 = temp;
+                    string temp2 = string(temp.begin()+start, temp.begin()+end);
+                    temp = temp2;
                     reverse(temp.begin(), temp.end());
                     if(temp2 == temp) {
                         //count++;
@@ -34,7 +35,8 @@ public:
                 if(s[start] == s[end-1]) {
                     string temp = s;
                     temp.erase(end, 1);
-                    string temp2 = temp;
+                    string temp2 = string(temp.begin()+start, temp.begin()+end);
+                    temp = temp2;
                     reverse(temp.begin(), temp.end());
                     if(temp2 == temp) {
                         // count++;
