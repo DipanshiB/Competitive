@@ -27,15 +27,16 @@ public:
                 area = max(area, height[start] * abs(end - start));
                 start++;
             }
-            else if (height[start] > height[end]) {
+            //if (height[start] > height[end])
+            else  {
                 area = max(area, height[end] * abs(end - start));
                 end--;
             }
-            else {
-                area = max(area, height[end] * abs(end - start));
-                if(height[start+1] > height[end-1]) start++;
-                else end--;
-            }
+            // else {
+            //     area = max(area, height[end] * abs(end - start));
+            //     if(height[start+1] > height[end-1]) start++;
+            //     else end--;
+            // }
         }
         return area;
     }
