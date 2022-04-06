@@ -12,13 +12,6 @@
 class Solution {
 public:
     
-    int height(TreeNode* root) {
-        if(!root) return 0;
-        int left = height(root->left);
-        int right = height(root->right);
-        return max(left, right) + 1;
-    }
-    
     static bool comp(pair<int, int>& a, pair<int, int>& b) {
         if(a.second < b.second) return true;
         else if(a.second == b.second)
@@ -27,7 +20,6 @@ public:
     }
     
     vector<vector<int>> verticalTraversal(TreeNode* root) {
-        //int h = height(root);
         vector<vector<int>> result;
         map<int, vector<pair<int, int>>> m;
         //queue of pair of treenode and pair of level, index
