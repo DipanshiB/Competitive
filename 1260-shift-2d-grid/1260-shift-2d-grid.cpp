@@ -1,7 +1,7 @@
 class Solution {
 public:
     
-    vector<vector<int>> shift(vector<vector<int>>& grid) {
+    void shift(vector<vector<int>>& grid) {
         int m = grid.size(), n = grid[0].size();
         int temp = grid[m-1][n-1];
         for(int i=m-1; i>=0; i--) {
@@ -14,7 +14,7 @@ public:
             }
         }
         grid[0][0] = temp;
-        return grid;
+        //return grid;
     }
     
     vector<vector<int>> shiftGrid(vector<vector<int>>& grid, int k) {
