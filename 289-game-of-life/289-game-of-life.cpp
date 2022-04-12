@@ -1,8 +1,8 @@
 class Solution {
 public:
     void gameOfLife(vector<vector<int>>& board) {
-        vector<vector<int>> currState;
-        copy(board.begin(), board.end(), back_inserter(currState));
+        vector<vector<int>> currState = board;
+        //copy(board.begin(), board.end(), back_inserter(currState));
         int m = board.size(), n = board[0].size(); 
         for(int i=0; i<m; i++) {
             for(int j=0; j<n; j++) {
